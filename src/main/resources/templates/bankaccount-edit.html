@@ -4,34 +4,68 @@
       xmlns:th="https://www.thymeleaf.org">
 
 <div class="container" layout:fragment="content">
-    <h1>Edit Bank Account</h1>
-    <form
-            th:action="@{/bankaccount/edit/{id}(id=${bankAccount.id})}"
-            th:object="${bankAccount}"
-            method="POST">
+    <h1>Bank Account Info</h1>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>CustomerId</th>
+            <th>Type</th>
+            <th>Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${bankAccount.id}"></td>
+            <td th:text="${bankAccount.customerId}"></td>
+            <td th:text="${bankAccount.type}"></td>
+            <td th:text="${bankAccount.balance}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h1>Make Transaction</h1>
+    <!--    <form th:action="@{/transaction}"-->
+    <!--          method="POST">-->
 
+    <!--        <div class="form-group">-->
+    <!--            <label for="bankAccountId">Bank Account Id </label>-->
+    <!--            <input disabled th:field="*{bankAccount.id}" class="form-control" name="bankAccountId" id="bankAccountId" path="bankAccountId">-->
+    <!--        </div>-->
+
+    <!--        <div class="form-group">-->
+    <!--            <label for="transactionType">Transaction Type</label>-->
+    <!--            <input class="form-control" name="transactionType" id="transactionType" path="transactionType">-->
+    <!--        </div>-->
+
+    <!--        <div class="form-group">-->
+    <!--            <label for="amount">Amount</label>-->
+    <!--            <input class="form-control" name="amount" id="amount" path="amount">-->
+    <!--        </div>-->
+
+    <!--        <div class="form-group">-->
+    <!--            <input type="submit" class="btn btn-primary">-->
+    <!--        </div>-->
+
+    <!--    </form>-->
+
+    <form action="#" th:action="@{/transaction}" method="POST">
         <div class="form-group">
-            <label for="inputId">Id</label>
-            <input disabled type="text" th:field="*{id}" class="form-control" id="inputId">
+            <label for="inputBankAccountId">bankAccountId</label>
+            <input type="text" class="form-control" name="bankAccountId" id="inputBankAccountId">
         </div>
 
         <div class="form-group">
-            <label for="inputCustomer">Customer Id</label>
-            <input disabled type="text" th:field="*{customerId}" class="form-control" id="inputCustomer">
+            <label for="inputTransactionType">TransactionType</label>
+            <input type="input" class="form-control" name="transactionType" id="inputTransactionType">
         </div>
 
         <div class="form-group">
-            <label for="inputType">Type</label>
-            <input disabled type="text" th:field="*{type}" class="form-control" id="inputType">
+            <label for="inputAmount">Amount</label>
+            <input type="input" class="form-control" name="amount" id="inputAmount">
         </div>
 
-        <div class="form-group">
-            <label for="inputBalance">Balance</label>
-            <input type="text" th:field="*{balance}" class="form-control" id="inputBalance">
-        </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary">
         </div>
-
     </form>
 </div>

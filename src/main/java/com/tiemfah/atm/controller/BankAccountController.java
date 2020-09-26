@@ -2,7 +2,7 @@ package com.tiemfah.atm.controller;
 
 
 import com.tiemfah.atm.model.BankAccount;
-import com.tiemfah.atm.model.Customer;
+import com.tiemfah.atm.model.Transaction;
 import com.tiemfah.atm.service.BankAccountService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,17 +41,14 @@ public class BankAccountController {
     public String editAccount(@PathVariable int id,
                               @ModelAttribute BankAccount bankAccount,
                               Model model) {
-
         accountService.editBankAccount(bankAccount);
         model.addAttribute("bankaccounts", accountService.getBankAccounts());
         return "redirect:/bankaccount";
     }
-
 
     @PostMapping("/delete/{id}")
     public String deleteAccount(@ModelAttribute BankAccount bankAccount) {
         accountService.deleteBankAccount(bankAccount);
         return "redirect:/bankaccount";
     }
-
 }

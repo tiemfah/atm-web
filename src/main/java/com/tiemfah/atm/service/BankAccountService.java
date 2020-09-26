@@ -38,7 +38,6 @@ public class BankAccountService {
         return response.getBody();
     }
 
-
     public List<BankAccount> getCustomerBankAccount(int customerId) {
         String url = "http://localhost:8091/api/bankaccount/customer/" +
                 customerId;
@@ -52,7 +51,7 @@ public class BankAccountService {
 
     public void openAccount(BankAccount bankAccount) {
         String url = "http://localhost:8091/api/bankaccount";
-
+        System.out.println(bankAccount);
         restTemplate.postForObject(url, bankAccount, BankAccount.class);
     }
 
